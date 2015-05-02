@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../template/templates/template.xhtml">
+
+            <ui:define name="content">
+                <div id="tooplate_main">
+                    <div class="contenedorUsuario">
+                        <h:form id="frmUsuarios">
+                            <p:growl id="mensajeGeneral" showDetail="false" sticky="false"/>
+                            <p:panel header="Actualizacion de Datos de Usuario" footer="APU 2008 Programacion Visual 2015">
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <p:outputLabel for="txtNombre" value="Nombre de Usuario: "/>
+                                    <p:inputText id="txtNombre" readonly="true"
+                                                 value="#{usuarioFormBean.usuarioBean.usuario.nombreUsuario}"/>
+
+                                    <p:outputLabel for="txtCorreoElectronico" value="Correo Electronico"/>
+                                    <p:inputText id="txtCorreoElectronico" required="true"
+                                                 maxlength="40" size="40"
+                                                 value="#{usuarioFormBean.usuarioBean.usuario.correoElectronico}">
+                                    </p:inputText>
+                                    <p:outputLabel for="txtApellido" value="Apellido: "/>
+                                    <p:inputText id="txtApellido" readonly="false" required="true"
+                                                 value="#{usuarioFormBean.usuarioBean.usuario.persona.apellido}" />
+                                    <p:outputLabel for="txtNombres" value="Nombres: "/>
+                                    <p:inputText id="txtNombres" readonly="false" required="true"
+                                                 value="#{usuarioFormBean.usuarioBean.usuario.persona.nombres}"/>
+                                    <p:outputLabel for="txtFechaNacimiento" value="Fecha de Nacimiento"/>
+                                    <p:calendar id="txtFechaNacimiento" pattern="dd-MM-yyyy" mask="true" required="true"
+                                                size="10" maxlength="10" locale="es"
+                                                value="#{usuarioFormBean.usuarioBean.usuario.persona.fechaNacimiento}"/>
+
+                                    <p:commandButton id="btnGrabar" value="Actualizar Datos" update="frmUsuarios"
+                                                     actionListener="#{usuarioFormBean.actualizarDatos()}"/>
+                                </h:panelGrid>
+                            </p:panel>
+                        </h:form>
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
