@@ -4,6 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
     <h:head>
         <title>Sistema de Veterinaria</title>
         <h:outputScript library="js" name="calendar_es.js"/>
@@ -22,20 +23,22 @@
                         <p:inputText id="txtCorreoElectronico" required="true"
                                      maxlength="40" size="40"
                                      value="#{usuarioFormBean.usuarioBean.usuario.correoElectronico}">
+                            <f:validator id="emailValidator"/>
                         </p:inputText>
                         <p:outputLabel for="txtApellido" value="Apellido: "/>
                         <p:inputText id="txtApellido" readonly="false" required="true"
                                      value="#{usuarioFormBean.usuarioBean.usuario.persona.apellido}" />
                         <p:outputLabel for="txtNombres" value="Nombres: "/>
                         <p:inputText id="txtNombres" readonly="false" required="true"
-                                     value="#{usuarioFormBean.usuarioBean.usuario.persona.nombres}/>
+                                     value="#{usuarioFormBean.usuarioBean.usuario.persona.nombres}"/>
                         <p:outputLabel for="txtFechaNacimiento" value="Fecha de Nacimiento"/>
                         <p:calendar id="txtFechaNacimiento" pattern="dd-MM-yyyy" mask="true" required="true"
                                     size="10" maxlength="10" locale="es"
                                     value="#{usuarioFormBean.usuarioBean.usuario.persona.fechaNacimiento}"/>
-
-                        <p:commandButton id="btnGrabar" value="Actualizar Datos" update="frmUsuarios"
-                                         actionListener="#{usuarioFormBean.actualizarDatos()}"/>
+                        <div>
+                            <p:commandButton id="btnGrabar" value="Actualizar Datos" update="frmUsuarios"
+                                             actionListener="#{usuarioFormBean.actualizarDatos()}"/>
+                        </div>
                     </h:panelGrid>
                 </p:panel>
             </h:form>
