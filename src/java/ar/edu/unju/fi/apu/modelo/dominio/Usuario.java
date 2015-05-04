@@ -1,6 +1,8 @@
 package ar.edu.unju.fi.apu.modelo.dominio;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable{
     private String nombreUsuario;
     private String password;
     private String correoElectronico;

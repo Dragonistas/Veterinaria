@@ -2,28 +2,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Sistema de Veterinaria</title>
     </h:head>
 
     <h:body>
-        <div class="contenedorUsuario">
-            <h:form id="frmPropietarios">
-                <p:growl id="mensajeGeneral" showDetail="false" sticky="false"/>
-                <p:panel header="Tablas Propietarios" footer="APU 2008 Programacion Visual 2015">
-                    <p:dataTable var="car" value="#{loginFormBean.nombreusuario}">
-                        <p:column headerText="Id">
-                            <h:outputText value="#{car.id}" />
-                        </p:column>
+        <ui:composition template="./../template/templates/template.xhtml">
 
-                        <p:column headerText="Year">
-                            <h:outputText value="#{car.year}" />
-                        </p:column>
-                    </p:dataTable>
-                </p:panel>
-            </h:form>
-        </div>
+            <ui:define name="content">
+                <div id="tooplate_main">
+                    <p:growl id="mensajeGeneral" showDetail="false" sticky="false"/>
+                    <p:panel id="pmlPrpietarios" >
+                        <h:form id="frmPropietarios">
+                            <p:dataTable id="tblPropietarios" value=""
+                                         paginator="true" rows="5">
+                                <p:column headerText="DNI" style="width: 65px;">
+                                    <p:outputLabel value=""/>
+                                </p:column>
+
+                                <p:column headerText="Apellido">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="Nombres">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="Direccion">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="Telefono">
+                                    <h:outputText value="" />
+                                </p:column>
+
+                                <p:column headerText="Fecha Nac">
+                                    <h:outputText value="" />
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </p:panel> 
+                </div>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 
